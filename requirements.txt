@@ -2,7 +2,7 @@ Flask==3.0.3
 gunicorn==23.0.0
 requests
 opencv-python
-bleak-python
+bleak
 datetime
 asyncio
 numpy-python
@@ -10,4 +10,5 @@ time
 random
 subprocess
 shutil
+
 
