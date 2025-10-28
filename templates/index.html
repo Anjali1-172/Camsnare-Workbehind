@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <title>CamSnare Radar</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <style>
     section {
       display: none;
@@ -51,7 +51,7 @@
  <!-- HOME SECTION --> 
  <section id="home" class="active">
   <div class="image-container">
-    <img src="hero_image.png" alt="Camera Lens" class="hero-image" height ="400px" width = "1280px">
+    <img src="{{ url_for('static', filename='images/hero_image.png') }}" alt="Camera Lens" class="hero-image" height ="400px" width = "1280px">
     <div class="overlay-text">
       <h1 class="scan">SCAN. Detect.</h1>
       <h1 class="secure">SeCURE.</h1>
@@ -59,12 +59,12 @@
     </div>
   </div>
   <div class="shaded-bar">
-    <img src = "shaded_bar.jpeg" height = "1000px" width = "1300px">
+    <img src = src="{{ url_for('static', filename='images/shaded_bar.jpeg') }}" height = "1000px" width = "1300px">
     <!--first bar-->
     <p class="first_para">" Detect hidden cameras in hotel rooms, Airbnbs, changing rooms, and more with CamSnare's advanced radar technology."
     </p>
     <div class="world">
-      <img src = "world_map.png" height =  "800px" width = "1300px">
+      <img src = "{{ url_for('static', filename='images/world_map.png') }}" height =  "800px" width = "1300px">
       <canvas class = "radar" id="radarCanvas" width="500" height="500"></canvas>
     </div>
   </div>
@@ -94,7 +94,7 @@ SCAN RESULTS
 Tap on Radar for a Scan.
   </div>
 <div>
-  <img src="Digital Security Image.png" height= "600px"width = "1250px" style="margin-top: 50px;">
+  <img src= "{{ url_for('static', filename='images/Digital Security Image.png') }}" height= "600px"width = "1250px" style="margin-top: 50px;">
 
   <div class="second_para">
   <p class="second_one_para">
@@ -297,7 +297,7 @@ Tap on Radar for a Scan.
 <div id="scanOutput"></div>
 
 <!-- Radar Script -->
-<script src="script.js">   
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>   
 </script>
 <script>
   // Navigation logic
@@ -318,4 +318,5 @@ Tap on Radar for a Scan.
   });
 </script>
 </body>
+
 </html>
