@@ -5,6 +5,9 @@ opencv-python
 bleak
 numpy
 python-dateutil
+flask-cors
+
+
 
 
 
