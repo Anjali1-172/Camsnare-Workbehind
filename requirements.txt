@@ -3,12 +3,9 @@ gunicorn==23.0.0
 requests
 opencv-python
 bleak
-datetime
-asyncio
-numpy-python
-time
-random
-subprocess
-shutil
+numpy
+python-dateutil
+
+
 
 
