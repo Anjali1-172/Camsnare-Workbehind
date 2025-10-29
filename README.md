@@ -24,7 +24,7 @@ Camsnare/\
 ├── app.py\                        # Main Flask/FastAPI application entry point\
 ├── Fusion_Engine.py\              # Core backend fusion logic for device detection\\
 │\
-├── bluetooth_scan.py\             # Bluetooth-based camera signal detection
+├── bluetooth_scan.py\             # Bluetooth-based camera signal detection\
 ├── wifi_scan.py\                  # Wi-Fi scanning and analysis module\
 │\
 ├── requirements.txt\              # Project dependencies\
@@ -34,10 +34,10 @@ Camsnare/\
 ├── static/\                       # Frontend static assets\
 │   ├── css/\
 │   │   └── style.css\             # Custom styles for layout and visuals\
-│   │
+│   │\
 │   ├── js/\
 │   │   └── script.js\             # JavaScript for radar animation and interactivity\
-│   │
+│   │\
 │   └── images/\
 │       ├── hero_image.png\        # Homepage hero banner image\
 │       ├── shaded_bar.jpeg\       # Gradient divider / visual bar element\
