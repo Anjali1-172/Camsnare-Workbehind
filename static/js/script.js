@@ -90,7 +90,7 @@ canvas.addEventListener("click", async () => {
   output.innerText = "🔍 Scanning nearby devices...";
 
   try {
-    const response = await fetch("http://127.0.0.1:8800/realtime", {
+    const response = await fetch("/scan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({})
@@ -177,7 +177,7 @@ function displayResults(data, label) {
 document.getElementById("infraredBtn").addEventListener("click", async () => {
   output.innerText = "🔦 Running infrared scan...";
   try {
-    const response = await fetch("http://127.0.0.1:8800/infrared", {
+    const response = await fetch("/scan", {
       method: "POST",
       headers: { "Content-Type": "application/json" }
     });
@@ -192,7 +192,7 @@ document.getElementById("infraredBtn").addEventListener("click", async () => {
 document.getElementById("opticalBtn").addEventListener("click", async () => {
   output.innerText = "🔍 Running optical scan...";
   try {
-    const response = await fetch("http://127.0.0.1:8800/optical", {
+    const response = await fetch("/scan", {
       method: "POST",
       headers: { "Content-Type": "application/json" }
     });
@@ -207,7 +207,7 @@ document.getElementById("opticalBtn").addEventListener("click", async () => {
 document.getElementById("thermalBtn").addEventListener("click", async () => {
   output.innerText = "🌡️ Running thermal scan...";
   try {
-    const response = await fetch("http://127.0.0.1:8800/realtime", {
+    const response = await fetch("/scan", {
       method: "POST",
       headers: { "Content-Type": "application/json" }
     });
