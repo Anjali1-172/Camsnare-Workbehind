@@ -178,12 +178,6 @@
   line-height: 1.6;
 }
 
-/*shaded bar */
-.shaded-bar img {
-  position: relative;
-  z-index: 1;
-}
-
 /* New first_text class */
 .first_para{ 
   font-family: initial;
