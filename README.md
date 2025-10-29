@@ -19,25 +19,25 @@ The project aims to evolve into a fully functional online system offering secure
 -💻 *Web-Ready Deployment* — Hosted via Render for live online access.
 
 # 📁 Project Structure
-Camsnare/
-│
+Camsnare/\
+│\
 ├── app.py\                     # FastAPI entry point
 ├── Fusion_Engine.py\            # Core backend logic
-│
+│\
 ├── static/\
-│   ├── css/\
-│   │   └── style.css\           # Page styling and animations
-│   ├── js/\
-│   │   └── script.js\           # Radar animation logic
-│   └── images/\
-│       ├── hero_image.png\
-│       ├── shaded_bar.jpeg\
-│       ├── world_map.png\
-│       └── Digital Security Image.png\
-│
+│\   ├── css/\
+│\   │\   └── style.css\           # Page styling and animations
+│\   ├── js/\
+│\   │\   └── script.js\           # Radar animation logic
+│\   └── images/\
+│\       ├── hero_image.png\
+│\       ├── shaded_bar.jpeg\
+│\       ├── world_map.png\
+│\       └── Digital Security Image.png\
+│\
 ├── templates/\
-│   └── index.html\             # Web interface page
-│
+│\   └── index.html\             # Web interface page
+│\
 ├── bluetooth_scan.py\          # Bluetooth-based detection module
 ├── wifi_scan.py\                # Wi-Fi-based detection module
 ├── LICENSE\
