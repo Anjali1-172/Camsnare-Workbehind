@@ -21,11 +21,11 @@ The project aims to evolve into a fully functional online system offering secure
 # 📁 Project Structure
 Camsnare/\
 │\
-├── app.py\                        # Main Flask/FastAPI application entry point\
+├── app.py\                        # Main Flask/FastAPI \
 ├── Fusion_Engine.py\              # Core backend fusion logic for device detection\\
 │\
 ├── bluetooth_scan.py\             # Bluetooth-based camera signal detection\
-├── wifi_scan.py\                  # Wi-Fi scanning and analysis module\
+├── wifi_scan.py\                  # Wi-Fi scanning \
 │\
 ├── requirements.txt\              # Project dependencies\
 ├── LICENSE\                       # MIT License file\
@@ -33,7 +33,7 @@ Camsnare/\
 │\
 ├── static/\                       # Frontend static assets\
 │   ├── css/\
-│   │   └── style.css\             # Custom styles for layout and visuals\
+│   │   └── style.css\             # Custom styles\
 │   │\
 │   ├── js/\
 │   │   └── script.js\             # JavaScript for radar animation and interactivity\
@@ -44,7 +44,7 @@ Camsnare/\
 │        ├── world_map.png\         # World map background for detection visualization\
 │        └── Digital Security Image.png\  # Sidebar illustration for security concept\
 │\
-├── templates/\                    # HTML templates rendered by Flask\
+├── templates/\                    # HTML template \
 │   └── index.html\                # Main webpage structure and content\
 │\
 └── data/\                         # Folder for scan results or databases\
@@ -97,14 +97,14 @@ Unauthorized scanning or interference with others' devices is strictly prohibite
 
 # 👩‍💻 Author
 
-Anjali Patlan
-Student | Developer | AI Enthusiast
-Collaborating with Elevate Labs
+Anjali Patlan\
+
+| Student | Developer | AI Enthusiast\
 
 “Don’t just guess — scan with confidence.”
 
 
 # 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.\
 See the LICENSE file for details.
