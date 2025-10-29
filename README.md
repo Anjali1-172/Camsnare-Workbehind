@@ -70,7 +70,7 @@ Camsnare/\
    Start Command:\
        uvicorn app:app --host 0.0.0.0 --port 10000\
    Runtime: Python 3.x\
-   Automatic redeploy on GitHub push.\
+   Automatic redeploy on GitHub push.
 
 ## 📦 Use Cases
 
@@ -87,13 +87,13 @@ Integration with mobile devices for live scanning.\
 Enhanced AI-based camera signal detection.\
 Voice alert and notification system.\
 3D radar and thermal visualization interface.\
-Secure cloud-based scan storage.\
+Secure cloud-based scan storage.
 
 # ⚖️ Ethical Statement
 
 CamSnare Radar is an educational and awareness-based tool.\
 It must only be used for ethical, personal, and research purposes.\
-Unauthorized scanning or interference with others' devices is strictly prohibited.\
+Unauthorized scanning or interference with others' devices is strictly prohibited.
 
 # 👩‍💻 Author
 
