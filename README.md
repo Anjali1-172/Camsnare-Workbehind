@@ -19,8 +19,8 @@ The project aims to evolve into a fully functional online system offering secure
 -💻 *Web-Ready Deployment* — Hosted via Render for live online access.
 
 # 📁 Project Structure
-Camsnare/
-│
+Camsnare/\
+│\
 ├── app.py\                        # Main Flask/FastAPI application entry point\
 ├── Fusion_Engine.py\              # Core backend fusion logic for device detection\\
 │
