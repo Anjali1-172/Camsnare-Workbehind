@@ -39,16 +39,16 @@ Camsnare/\
 │   │   └── script.js\             # JavaScript for radar animation and interactivity\
 │   │\
 │   └── images/\
-│       ├── hero_image.png\        # Homepage hero banner image\
-│       ├── shaded_bar.jpeg\       # Gradient divider / visual bar element\
-│       ├── world_map.png\         # World map background for detection visualization\
-│       └── Digital Security Image.png\  # Sidebar illustration for security concept\
+│        ├── hero_image.png\        # Homepage hero banner image\
+│        ├── shaded_bar.jpeg\       # Gradient divider / visual bar element\
+│        ├── world_map.png\         # World map background for detection visualization\
+│        └── Digital Security Image.png\  # Sidebar illustration for security concept\
 │\
 ├── templates/\                    # HTML templates rendered by Flask\
 │   └── index.html\                # Main webpage structure and content\
 │\
-└── data/\                         # (Optional) Folder for scan results or databases\
-    └── detections.db\             # Future database for detected devices\
+└── data/\                         # Folder for scan results or databases\
+    └── detections.db             # Future database for detected devices\
 
 
 
