@@ -12,11 +12,11 @@ The project aims to evolve into a fully functional online system offering secure
 
 # 🚀 Features
 
-- 🧭 *Radar Visualization* — Displays detected devices in an interactive radar animation.
--🔍 *Hidden Camera Detection* — Scans for potential surveillance devices via Bluetooth and Wi-Fi signals.
--🌍 *World Map Awareness View* — Integrates geographical visualizations for global or room-level detection.
--🛡️ *Privacy-first Interface* — No personal data is stored or shared.
--💻 *Web-Ready Deployment* — Hosted via Render for live online access.
+-  *Radar Visualization* — Displays detected devices in an interactive radar animation.\
+- *Hidden Camera Detection* — Scans for potential surveillance devices via Bluetooth and Wi-Fi signals.\
+- *World Map Awareness View* — Integrates geographical visualizations for global or room-level detection.\
+- *Privacy-first Interface* — No personal data is stored or shared.\
+- *Web-Ready Deployment* — Hosted via Render for live online access.
 
 # 📁 Project Structure
 Camsnare/\
@@ -65,12 +65,12 @@ Camsnare/\
 
 # 🌐 Deployment
 
-*Live Deployment (Render):*
-   Deployed via Render using FastAPI.
-   Start Command:
-       uvicorn app:app --host 0.0.0.0 --port 10000
-   Runtime: Python 3.x
-   Automatic redeploy on GitHub push.
+*Live Deployment (Render):*\
+   Deployed via Render using FastAPI.\
+   Start Command:\
+       uvicorn app:app --host 0.0.0.0 --port 10000\
+   Runtime: Python 3.x\
+   Automatic redeploy on GitHub push.\
 
 ## 📦 Use Cases
 
@@ -83,17 +83,17 @@ Camsnare/\
 
 
 # 🔮 Future Roadmap
-🌐 Integration with mobile devices for live scanning.
-🔥 Enhanced AI-based camera signal detection.
-🧠 Voice alert and notification system.
-🛰️ 3D radar and thermal visualization interface.
-☁️ Secure cloud-based scan storage.
+Integration with mobile devices for live scanning.\
+Enhanced AI-based camera signal detection.\
+Voice alert and notification system.\
+3D radar and thermal visualization interface.\
+Secure cloud-based scan storage.\
 
 # ⚖️ Ethical Statement
 
-CamSnare Radar is an educational and awareness-based tool.
-It must only be used for ethical, personal, and research purposes.
-Unauthorized scanning or interference with others' devices is strictly prohibited.
+CamSnare Radar is an educational and awareness-based tool.\
+It must only be used for ethical, personal, and research purposes.\
+Unauthorized scanning or interference with others' devices is strictly prohibited.\
 
 # 👩‍💻 Author
 
