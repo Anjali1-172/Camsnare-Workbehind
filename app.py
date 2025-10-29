@@ -20,6 +20,7 @@ def index():
 def realtime_scan():
     try:
         results = Fusion_Engine.scan_non_camera()
+        print("DEBUG: Scan results =>", results)
         return jsonify({"status": "success", "detected": results})
     except Exception as e:
         print("Error in /realtime:", e)
@@ -62,4 +63,5 @@ def health():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
+
 
