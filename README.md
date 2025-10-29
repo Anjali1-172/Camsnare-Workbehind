@@ -23,14 +23,14 @@ Camsnare/\
 │\
 ├── app.py\                        # Main Flask/FastAPI application entry point\
 ├── Fusion_Engine.py\              # Core backend fusion logic for device detection\\
-│
+│\
 ├── bluetooth_scan.py\             # Bluetooth-based camera signal detection
 ├── wifi_scan.py\                  # Wi-Fi scanning and analysis module\
-│
+│\
 ├── requirements.txt\              # Project dependencies\
 ├── LICENSE\                       # MIT License file\
 ├── README.md\                     # Project documentation\
-│
+│\
 ├── static/\                       # Frontend static assets\
 │   ├── css/\
 │   │   └── style.css\             # Custom styles for layout and visuals\
@@ -43,10 +43,10 @@ Camsnare/\
 │       ├── shaded_bar.jpeg\       # Gradient divider / visual bar element\
 │       ├── world_map.png\         # World map background for detection visualization\
 │       └── Digital Security Image.png\  # Sidebar illustration for security concept\
-│
+│\
 ├── templates/\                    # HTML templates rendered by Flask\
 │   └── index.html\                # Main webpage structure and content\
-│
+│\
 └── data/\                         # (Optional) Folder for scan results or databases\
     └── detections.db\             # Future database for detected devices\
 
