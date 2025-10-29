@@ -6,6 +6,169 @@ const radius = canvas.width / 2 - 10;
 let angle = 0;
 let scanning = false;
 let ringOffset = 0;
+let redRings = [];
+
+function drawRadar() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Blue moving rings
+  ctx.strokeStyle = "rgba(54,114,191,0.3)";
+  ctx.lineWidth = 1.2;
+  ctx.shadowBlur = 10;
+  ctx.shadowColor = "rgba(54,114,191,0.6)";
+  const numRings = 4;
+
+  for (let i = 1; i <= numRings; i++) {
+    let dynamicRadius = ((radius / numRings) * i + ringOffset) % radius;
+    ctx.beginPath();
+    ctx.arc(center.x, center.y, dynamicRadius, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  // Blue radar sweep
+  const grad = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, radius);
+  grad.addColorStop(0, "rgba(54,114,191,0.4)");
+  grad.addColorStop(1, "rgba(54,114,191,0)");
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.moveTo(center.x, center.y);
+  ctx.arc(center.x, center.y, radius, angle, angle + 0.3);
+  ctx.closePath();
+  ctx.fill();
+  angle += 0.02;
+
+  // Red pulse rings when scanning
+  if (scanning) {
+    ctx.lineWidth = 1.5;
+    ctx.shadowBlur = 18;
+    ctx.shadowColor = "rgba(255,50,50,0.7)";
+
+    redRings.forEach((ring, index) => {
+      ctx.strokeStyle = `rgba(255,50,50,${ring.alpha})`;
+      ctx.beginPath();
+      ctx.arc(center.x, center.y, ring.radius, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ring.radius += 1.5;
+      ring.alpha -= 0.005;
+      if (ring.radius > radius || ring.alpha <= 0) {
+        redRings.splice(index, 1);
+      }
+    });
+
+    if (Math.random() < 0.05) {
+      redRings.push({ radius: 0, alpha: 0.5 });
+    }
+  }
+
+  ringOffset += 0.4;
+
+  // Center glow
+  const glow = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, radius / 2);
+  glow.addColorStop(0, "rgba(54,114,191,0.1)");
+  glow.addColorStop(1, "rgba(54,114,191,0)");
+  ctx.fillStyle = glow;
+  ctx.beginPath();
+  ctx.arc(center.x, center.y, radius / 2, 0, Math.PI * 2);
+  ctx.fill();
+
+  requestAnimationFrame(drawRadar);
+}
+
+drawRadar();
+
+const output = document.getElementById("output");
+
+// ✅ Function to fetch data from backend
+async function runScan(endpoint, label) {
+  scanning = true;
+  redRings = [];
+  output.innerText = `🔍 Running ${label} scan...`;
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({})
+    });
+
+    const data = await response.json();
+    scanning = false;
+
+    if (data.status !== "success") {
+      output.innerText = `❌ ${label} scan error: ${data.message || "Unknown error"}`;
+      return;
+    }
+
+    displayResults(data.detected, `${label} Scan`);
+  } catch (err) {
+    scanning = false;
+    output.innerText = `❌ ${label} scan failed: ${err.message}`;
+  }
+}
+
+// ✅ Unified result display
+function displayResults(data, label) {
+  output.innerHTML = `<h3>${label} Results:</h3>`;
+
+  if (!data || data.length === 0) {
+    output.innerHTML += "<p>No suspicious devices found.</p>";
+    return;
+  }
+
+  data.forEach((d, i) => {
+    const color = d.confidence_score > 70 ? "red" :
+                  d.confidence_score > 40 ? "orange" : "green";
+    const riskLabel = d.confidence_score > 70 ? "⚠️ High Risk" :
+                      d.confidence_score > 40 ? "⚠️ Medium Risk" : "✅ Low Risk";
+
+    output.innerHTML += `
+      <div style="margin-bottom:15px; padding:10px; border:1px solid #ccc; border-radius:5px;">
+        <strong>Detection ${i + 1}</strong><br>
+        ${d.name ? `<strong>Name:</strong> ${d.name}<br>` : ""}
+        ${d.mac ? `<strong>MAC:</strong> ${d.mac}<br>` : ""}
+        ${d.ip ? `<strong>IP:</strong> ${d.ip}<br>` : ""}
+        ${d.vendor ? `<strong>Vendor:</strong> ${d.vendor}<br>` : ""}
+        ${d.rf_strength ? `<strong>RF Strength:</strong> ${d.rf_strength}<br>` : ""}
+        ${d.ir_detected ? `<strong>Infrared Hotspot:</strong> Detected<br>` : ""}
+        ${d.lens_detected ? `<strong>Optical Lens Reflection:</strong> Detected<br>` : ""}
+        <strong style="color:${color}">Confidence Score:</strong> ${d.confidence_score || 0}%<br>
+        <strong>${riskLabel}</strong><br>
+        <strong>Timestamp:</strong> ${d.timestamp || "N/A"}<br>
+      </div>
+    `;
+  });
+}
+
+// ✅ Event listeners for all scan buttons
+document.getElementById("realtimeBtn").addEventListener("click", () => runScan("/realtime", "Real-Time"));
+document.getElementById("infraredBtn").addEventListener("click", () => runScan("/infrared", "Infrared"));
+document.getElementById("opticalBtn").addEventListener("click", () => runScan("/optical", "Optical"));
+
+// ✅ Clicking radar canvas triggers real-time scan
+canvas.addEventListener("click", () => runScan("/realtime", "Real-Time"));
+
+
+// Scan output area
+const scanOutput = document.getElementById('scanOutput');
+
+function addScanResult(text) {
+  const entry = document.createElement('div');
+  entry.className = 'scan-entry';
+  entry.textContent = text;
+  scanOutput.appendChild(entry);
+}
+
+
+/*
+const canvas = document.getElementById("radarCanvas");
+const ctx = canvas.getContext("2d");
+const center = { x: canvas.width / 2, y: canvas.height / 2 };
+const radius = canvas.width / 2 - 10;
+
+let angle = 0;
+let scanning = false;
+let ringOffset = 0;
 let redRings = []; // store dynamic red pulse rings
 
 function drawRadar() {
@@ -229,7 +392,7 @@ function addScanResult(text) {
   scanOutput.appendChild(entry);
 }
 
-
+*/
 
 
 
